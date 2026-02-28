@@ -102,9 +102,9 @@ export const semantic = {
  * Pretendard: 한글 최적화 폰트
  */
 export const fontFamily = {
-  sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
-  mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
-} as const;
+  sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'] as string[],
+  mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'] as string[],
+};
 
 /**
  * 폰트 크기
