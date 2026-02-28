@@ -1,4 +1,17 @@
 import type { Config } from 'tailwindcss';
+import {
+  primary,
+  secondary,
+  accent,
+  grayscale,
+  semantic,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  spacing,
+  borderRadius as customBorderRadius,
+} from './src/styles/design-tokens';
 
 const config = {
   darkMode: ['class'],
@@ -13,6 +26,7 @@ const config = {
       },
     },
     extend: {
+      // shadcn/ui의 CSS 변수 기반 컬러 (기존 유지)
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -22,10 +36,14 @@ const config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          // 디자인 토큰의 primary 팔레트 추가
+          ...primary,
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+          // 디자인 토큰의 secondary 팔레트 추가
+          ...secondary,
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -38,6 +56,8 @@ const config = {
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
+          // 디자인 토큰의 accent 팔레트 추가
+          ...accent,
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -47,12 +67,39 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        // 추가 컬러 팔레트
+        gray: grayscale,
+        success: semantic.success,
+        warning: semantic.warning,
+        error: semantic.error,
+        info: semantic.info,
       },
+      // 타이포그래피
+      fontFamily: {
+        sans: fontFamily.sans,
+        mono: fontFamily.mono,
+      },
+      fontSize: {
+        ...fontSize,
+      },
+      fontWeight: {
+        ...fontWeight,
+      },
+      lineHeight: {
+        ...lineHeight,
+      },
+      // 간격
+      spacing: {
+        ...spacing,
+      },
+      // Border Radius
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        ...customBorderRadius,
       },
+      // 애니메이션 (기존 유지)
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
